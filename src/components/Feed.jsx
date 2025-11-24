@@ -10,7 +10,7 @@ export const Feed = () => {
   const dispatch = useDispatch();
 
   const getFeed = async () => {
-    if (feed) return;
+    if (feed.length !== 0) return;
     try {
       const res = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
@@ -27,7 +27,11 @@ export const Feed = () => {
 
   return (
     <div className="flex justify-center my-10">
-      {feed && <UserCard user={feed[0]} />}
+      {feed?.length > 0 ? (
+        <UserCard user={feed[0]} />
+      ) : (
+        <p>No users available 🙅‍♂️</p>
+      )}
     </div>
   );
 };
