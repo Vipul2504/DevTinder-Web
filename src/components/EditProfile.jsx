@@ -27,8 +27,8 @@ const EditProfile = ({ user }) => {
           firstName,
           lastName,
           photoUrl,
-          age,
-          gender,
+          age: Number(age),
+          gender: gender.toLowerCase(),
           about,
           skills,
         },
@@ -125,7 +125,7 @@ const EditProfile = ({ user }) => {
                 </label>
                 <label className="form-control w-full max-w-xs my-2">
                   <div className="label">
-                    <span className="label-text">About:</span>
+                    <span className="label-text">Skill:</span>
                   </div>
                   <input
                     type="text"
